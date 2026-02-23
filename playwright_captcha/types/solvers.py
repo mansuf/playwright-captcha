@@ -13,3 +13,4 @@ class SolverType(Enum):
     twocaptcha = "twocaptcha"
     tencaptcha = "tencaptcha"
     captchaai = "captchaai"
+    solvertr = "solvertr"
