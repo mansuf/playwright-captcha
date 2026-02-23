@@ -18,7 +18,7 @@ async def solve_cloudflare_interstitial_capmonster(async_capmonster_client: Asyn
 
     logger.debug('Solving Cloudflare Interstitial captcha using CapMonster...')
 
-    validate_required_params(['sitekey', 'url'], kwargs)
+    validate_required_params(['sitekey', 'url', 'action', 'data', 'pagedata'], kwargs)
 
     result = await async_capmonster_client.turnstile(
         **kwargs
