@@ -4,6 +4,8 @@ from .apply import apply_cloudflare_interstitial_captcha
 from .detect_data import detect_interstitial_data
 from .solvers.click import solve_cloudflare_interstitial_click
 from .solvers.twocaptcha import solve_cloudflare_interstitial_twocaptcha
+from .solvers.solvertr import solve_cloudflare_interstitial_solvertr
+from .solvers.capmonster import solve_cloudflare_interstitial_capmonster
 from ...types.solvers import SolverType
 
 # register solvers
@@ -12,6 +14,10 @@ BaseSolver.register_solver(SolverType.click, CaptchaType.CLOUDFLARE_INTERSTITIAL
 # and it not always works on the first attempt
 BaseSolver.register_solver(SolverType.twocaptcha, CaptchaType.CLOUDFLARE_INTERSTITIAL,
                            solve_cloudflare_interstitial_twocaptcha, reload_on_fail=True)
+BaseSolver.register_solver(SolverType.solvertr, CaptchaType.CLOUDFLARE_INTERSTITIAL,
+                           solve_cloudflare_interstitial_solvertr, reload_on_fail=True)
+BaseSolver.register_solver(SolverType.capmonster, CaptchaType.CLOUDFLARE_INTERSTITIAL,
+                           solve_cloudflare_interstitial_capmonster, reload_on_fail=True)
 
 
 # register detector

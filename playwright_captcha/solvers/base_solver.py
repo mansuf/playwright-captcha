@@ -101,7 +101,11 @@ class BaseSolver(ABC):
         # monkey-patch to open closed shadowRoots
         await self.page.add_init_script(await load_js_script('patches/unlockShadowRoot.js'))
 
-        if self.type == SolverType.twocaptcha:  # or other api-based solvers that needed this data
+        if (
+            self.type == SolverType.twocaptcha or
+            self.type == SolverType.capmonster or
+            self.type == SolverType.solvertr
+        ):  # or other api-based solvers that needed this data
             # cloudflare interstitial requires to inject a script to intercept the challenge parameters
             await self.page.add_init_script(await load_js_script('patches/interceptCloudflareInterstitialData.js'))
 

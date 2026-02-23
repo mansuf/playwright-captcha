@@ -5,6 +5,7 @@ from .detect_data import detect_turnstile_data
 from .solvers.click import solve_cloudflare_turnstile_click
 from .solvers.twocaptcha import solve_cloudflare_turnstile_twocaptcha
 from .solvers.solvertr import solve_cloudflare_turnstile_solvertr
+from .solvers.capmonster import solve_cloudflare_turnstile_capmonster
 from ...types.solvers import SolverType
 
 # register solvers
@@ -13,6 +14,8 @@ BaseSolver.register_solver(SolverType.twocaptcha, CaptchaType.CLOUDFLARE_TURNSTI
                            solve_cloudflare_turnstile_twocaptcha)
 BaseSolver.register_solver(SolverType.solvertr, CaptchaType.CLOUDFLARE_TURNSTILE,
                            solve_cloudflare_turnstile_solvertr)
+BaseSolver.register_solver(SolverType.capmonster, CaptchaType.CLOUDFLARE_TURNSTILE,
+                           solve_cloudflare_turnstile_capmonster)
 
 # register detector
 BaseSolver.register_detector(CaptchaType.CLOUDFLARE_TURNSTILE, detect_turnstile_data)

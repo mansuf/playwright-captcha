@@ -9,6 +9,7 @@ except ImportError:
 
 from playwright_captcha.solvers.api.twocaptcha.twocaptcha_solver import TwoCaptchaSolver
 from playwright_captcha.solvers.api.solvertr.solvertr_solver import SolverTrSolver
+from playwright_captcha.solvers.api.capmonster.capmonster_solver import CapMonsterSolver
 from playwright_captcha.solvers.base_solver import BaseSolver
 from .solvers.api.api_solver_base import ApiSolverBase
 from .solvers.click import ClickSolver
@@ -23,5 +24,6 @@ __all__ = [
     'ClickSolver',
     'ApiSolverBase',
     'TwoCaptchaSolver',
-    'SolverTrSolver'
+    'SolverTrSolver',
+    'CapMonsterSolver'
 ]

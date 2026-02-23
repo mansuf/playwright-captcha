@@ -41,7 +41,7 @@ class AsyncSolverTr:
             await self._session.close()
 
     async def turnstile(self, sitekey: str, url: str, action: Optional[str] = None,
-                        cdata: Optional[str] = None) -> dict:
+                        data: Optional[str] = None, pagedata: Optional[str] = None, useragent: Optional[str] = None) -> dict:
         """
         Solve Cloudflare Turnstile using Solver.tr.
 
@@ -60,7 +60,9 @@ class AsyncSolverTr:
         params = {
             "url": url,
             "sitekey": sitekey,
-            "apikey": self.api_key
+            "apikey": self.api_key,
+            "action": action,
+            "cdata": data
         }
 
         logger.info(f"[Solver.tr] Solving Turnstile for {url}...")
