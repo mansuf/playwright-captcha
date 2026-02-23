@@ -1,4 +1,5 @@
 import logging
+import asyncio
 
 from playwright.async_api import Page
 
@@ -32,6 +33,8 @@ async def apply_cloudflare_interstitial_captcha(page: Page, token: str, *args, *
         # apply multiple times just in case - not always works on the first try for this captcha type
         for attempt in range(5):
             await page.evaluate(js_script, token)
+
+        await asyncio.sleep(2)
 
         logger.info("Token applied successfully")
 
