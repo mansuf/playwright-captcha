@@ -34,7 +34,7 @@ async def apply_cloudflare_interstitial_captcha(page: Page, token: str, *args, *
         for attempt in range(5):
             await page.evaluate(js_script, token)
 
-        await asyncio.sleep(15)
+        await asyncio.sleep(5)
 
         logger.info("Token applied successfully")
 
